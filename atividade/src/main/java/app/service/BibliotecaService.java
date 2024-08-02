@@ -14,7 +14,7 @@ public class BibliotecaService {
 		return "Biblioteca salva com sucesso!";
 	}
 	
-	public String update(Biblioteca biblioteca) {
+	public String update(Biblioteca biblioteca, long id) {
 		return "Biblioteca atualizada com sucesso!";
 	}
 	
