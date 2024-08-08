@@ -3,12 +3,17 @@ package app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Biblioteca;
+import app.repository.BibliotecaRepository;
 
 @Service
 public class BibliotecaService {
+	
+	@Autowired
+	private BibliotecaRepository bibliotecaRepository;
 	
 	public String save(Biblioteca biblioteca) {
 		return "Biblioteca salva com sucesso!";
