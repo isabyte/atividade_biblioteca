@@ -37,7 +37,7 @@ public class EditoraService {
 	
 	public String delete(long id) {
 		this.editoraRepository.deleteById(id);
-		return "Erro ao deletar editora";
+		return "Editora deletada com sucesso";
 	}
 
 }

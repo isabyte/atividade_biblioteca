@@ -37,7 +37,7 @@ public class BibliotecaService {
 	
 	public String delete(long id) {
 		this.bibliotecaRepository.deleteById(id);
-		return "Biblioteca não encontrada";
+		return "Biblioteca deletada com sucesso";
 	}
 
 }

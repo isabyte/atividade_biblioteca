@@ -38,7 +38,7 @@ public class LivroService {
 	
 	public String delete(long id) {
 		this.livroRepository.deleteById(id);
-		return "Erro ao deletar livro";
+		return "Livro deletado com sucesso";
 	}
 	
 }
