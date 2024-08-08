@@ -1,6 +1,5 @@
 package app.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,46 +15,29 @@ public class LivroService {
 	private LivroRepository livroRepository;
 
 	public String save(Livro livro) {
+		this.livroRepository.save(livro);
 		return "Livro salvo com sucesso!";
 	}
 	
 	public String update(Livro livro, long id) {
+		livro.setId(id);
+		this.livroRepository.save(livro);
 		return "Livro atualizado com sucesso!";
 	}
 	
 	public List<Livro> findAll() {
-		List<Livro> lista = new ArrayList<>();
-		
-		lista.add(new Livro(1, "Livro 1", 2001, "Autor 1"));
-		lista.add(new Livro(2, "Livro 2", 2002, "Autor 2"));
-		lista.add(new Livro(3, "Livro 3", 2003, "Autor 3"));
-		lista.add(new Livro(4, "Livro 4", 2004, "Autor 4"));
-		lista.add(new Livro(5, "Livro 5", 2005, "Autor 5"));
-
+		List<Livro> lista = this.livroRepository.findAll();
 		return lista;
 	}
 	
 	public Livro findById(long id) {
-		List<Livro> lista = this.findAll();
-		
-		for (Livro livro : lista) {
-			if(livro.getId() == id) {
-				return livro;
-			}
-		}
-		
-		return null;
+		Livro livro = this.livroRepository.findById(id).get();
+		return livro;
 		
 	}
 	
 	public String delete(long id) {
-		List<Livro> lista = this.findAll();
-		
-		for(Livro livro : lista) {
-			if(livro.getId() == id) {
-				return "Livro " + livro.getTitulo()+ " deletado com sucesso!";
-			}
-		}
+		this.livroRepository.deleteById(id);
 		return "Erro ao deletar livro";
 	}
 	
